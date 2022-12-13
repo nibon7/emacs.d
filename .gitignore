@@ -1,0 +1,12 @@
+*~
+*#
+*.elc
+.cache
+auto-save-list
+elpa
+eln-cache
+transient
+request
+emojis
+custom.el
+tree-sitter

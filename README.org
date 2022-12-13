@@ -1,0 +1,13 @@
+#+TITLE: My Emacs configuration
+
+#+HTML: <a href="https://www.gnu.org/software/emacs/" ><img alt="GNU Emacs" src="https://img.shields.io/static/v1?logo=gnuemacs&logoColor=fafafa&label=Made%20for&message=GNU%20Emacs&color=7F5AB6&style=flat" /></a>
+#+HTML: <a href="https://www.gnu.org/software/emacs/"><img alt="Emacs Version" src="https://img.shields.io/static/v1?label=Emacs&message=%3E%3D29.3&color=blue" /></a>
+#+HTML: <a href="https://www.linuxfoundation.org/"><img alt="Platform" src="https://img.shields.io/static/v1?label=platform&message=linux%20tested&color=brightgreen" /></a>
+#+HTML: <a href="https://github.com/nibon7/emacs.d/blob/main/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/nibon7/emacs.d" /></a>
+#+HTML: <a href="https://github.com/nibon7/emacs.d/actions/workflows/ci.yml?query=branch%3Amain"><img alt="Build Status" src="https://img.shields.io/github/actions/workflow/status/nibon7/emacs.d/ci.yml" /></a>
+
+* Usage
+
+#+BEGIN_SRC shell
+git clone https://github.com/nibon7/emacs.d $HOME/.emacs.d
+#+END_SRC
