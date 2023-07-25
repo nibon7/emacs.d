@@ -168,7 +168,11 @@
   ("C-c s P" . cscope-history-backward-file)
   ("C-c s I" . cscope-index-files)
   ("C-c s u" . cscope-pop-mark)
-  ("C-c s b" . cscope-display-buffer-toggle))
+  ("C-c s b" . cscope-display-buffer-toggle)
+  :hook
+  (cscope-list-entry . (lambda ()
+			 (when (symbolp 'evil-emacs-state)
+			   (evil-emacs-state nil)))))
 
 (provide 'init-prog)
 
