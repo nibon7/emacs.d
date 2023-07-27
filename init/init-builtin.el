@@ -68,6 +68,14 @@
       copyright-names-regexp
       (format "%s <%s>" user-full-name user-mail-address))
 
+;; set default font
+(when (window-system)
+  (let* ((name "JetBrainsMono Nerd Font Mono")
+	 (size 14)
+	 (font (format "%s-%d" name size)))
+    (add-to-list 'default-frame-alist `(font . ,font))
+    (set-face-attribute 'default t :font `,font)))
+
 (provide 'init-builtin)
 
 ;;; init-builtin.el ends here
