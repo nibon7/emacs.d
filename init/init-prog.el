@@ -139,6 +139,7 @@
   (c-ts-mode . eglot-ensure)
   (rust-ts-mode . eglot-ensure)
   (TeX-mode . eglot-ensure)
+  (python-mode . eglot-ensure)
   :bind
   (:map eglot-mode-map
 	("C-c r" . eglot-rename)
