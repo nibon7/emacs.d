@@ -4,7 +4,7 @@
 
 ;;; Code:
 
-(let ((minver "27.1"))
+(let ((minver "29.1"))
   (when (version< emacs-version minver)
     (error (format "Emacs %s or later required" minver))))
 

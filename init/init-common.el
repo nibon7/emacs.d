@@ -15,8 +15,7 @@
   :hook after-init
   :custom
   (evil-want-C-i-jump nil)
-  (evil-undo-system (when (>= emacs-major-version 28)
-		      'undo-redo)))
+  (evil-undo-system 'undo-redo))
 
 ;; highlight the cursor whenever the window scrolls
 (use-package beacon

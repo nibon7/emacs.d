@@ -20,44 +20,42 @@
   (prog-mode . hs-minor-mode))
 
 ;; tree-sitter
-(if (< emacs-major-version 29)
-    (use-package rust-mode)
-  (use-package emacs
-    :ensure nil
-    :config
-    (require 'treesit)
-    (defun nibon7/generate-treesit-language-source (lang)
-      "Generate tree-sitter language source for specified language LANG."
-      (let ((repo (format "tree-sitter-%s" lang))
-	    (org "tree-sitter")
-	    url)
-	(cond ((eq lang 'cmake) (setq org "uyha"))
-	      ((eq lang 'nu) (setq org "nushell"))
-	      ((eq lang 'yaml) (setq org "ikatyang")))
-	(setq url (format "https://github.com/%s/%s" org repo))
-	(add-to-list 'treesit-language-source-alist `(,lang ,url) t)))
-    (defun nibon7/build-and-install-treesit-grammars ()
-      "Build and install all tree-sitter language grammars."
-      (interactive)
-      (dolist (lang '(bash c cmake cpp javascript json nu python rust toml yaml))
-	(nibon7/generate-treesit-language-source lang)
-	(treesit-install-language-grammar lang)
-	(message "Language grammar for `%s' installed." lang)
-	(sit-for 0.5)))
-    (unless (file-exists-p
-	     (expand-file-name "tree-sitter" user-emacs-directory))
-      (nibon7/build-and-install-treesit-grammars))
-    (when (treesit-ready-p 'c t)
-      (add-to-list 'major-mode-remap-alist '(c-mode . c-ts-mode))
-      (add-to-list 'major-mode-remap-alist '(c++-mode . c++-ts-mode))
-      (add-to-list 'major-mode-remap-alist '(c-or-c++-mode . c-or-c++-ts-mode)))
-    (when (treesit-ready-p 'rust t)
-      (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-ts-mode)))
-    (when (treesit-ready-p 'toml t)
-      (add-to-list 'auto-mode-alist '("\\.toml\\'" . toml-ts-mode)))
-    (when (treesit-ready-p 'cmake t)
-      (add-to-list 'auto-mode-alist
-                   '("\\(?:CMakeLists\\.txt\\|\\.cmake\\)\\'" . cmake-ts-mode)))))
+(use-package emacs
+  :ensure nil
+  :config
+  (require 'treesit)
+  (defun nibon7/generate-treesit-language-source (lang)
+    "Generate tree-sitter language source for specified language LANG."
+    (let ((repo (format "tree-sitter-%s" lang))
+	  (org "tree-sitter")
+	  url)
+      (cond ((eq lang 'cmake) (setq org "uyha"))
+	    ((eq lang 'nu) (setq org "nushell"))
+	    ((eq lang 'yaml) (setq org "ikatyang")))
+      (setq url (format "https://github.com/%s/%s" org repo))
+      (add-to-list 'treesit-language-source-alist `(,lang ,url) t)))
+  (defun nibon7/build-and-install-treesit-grammars ()
+    "Build and install all tree-sitter language grammars."
+    (interactive)
+    (dolist (lang '(bash c cmake cpp javascript json nu python rust toml yaml))
+      (nibon7/generate-treesit-language-source lang)
+      (treesit-install-language-grammar lang)
+      (message "Language grammar for `%s' installed." lang)
+      (sit-for 0.5)))
+  (unless (file-exists-p
+	   (expand-file-name "tree-sitter" user-emacs-directory))
+    (nibon7/build-and-install-treesit-grammars))
+  (when (treesit-ready-p 'c t)
+    (add-to-list 'major-mode-remap-alist '(c-mode . c-ts-mode))
+    (add-to-list 'major-mode-remap-alist '(c++-mode . c++-ts-mode))
+    (add-to-list 'major-mode-remap-alist '(c-or-c++-mode . c-or-c++-ts-mode)))
+  (when (treesit-ready-p 'rust t)
+    (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-ts-mode)))
+  (when (treesit-ready-p 'toml t)
+    (add-to-list 'auto-mode-alist '("\\.toml\\'" . toml-ts-mode)))
+  (when (treesit-ready-p 'cmake t)
+    (add-to-list 'auto-mode-alist
+                 '("\\(?:CMakeLists\\.txt\\|\\.cmake\\)\\'" . cmake-ts-mode))))
 
 ;; cargo
 (use-package cargo)
