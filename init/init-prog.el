@@ -97,7 +97,8 @@
 
 ;; flyspell
 (use-package flyspell
-  :when (executable-find "aspell")
+  :when (or (executable-find "hunspell")
+	    (executable-find "aspell"))
   :ensure nil
   :hook
   (prog-mode . flyspell-prog-mode)
