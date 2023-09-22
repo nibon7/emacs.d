@@ -51,6 +51,8 @@
     (add-to-list 'major-mode-remap-alist '(c-or-c++-mode . c-or-c++-ts-mode)))
   (when (treesit-ready-p 'rust t)
     (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-ts-mode)))
+  (when (treesit-ready-p 'nu t)
+    (add-to-list 'auto-mode-alist '("\\.nu\\'" . nushell-ts-mode)))
   (when (treesit-ready-p 'toml t)
     (add-to-list 'auto-mode-alist '("\\.toml\\'" . toml-ts-mode)))
   (when (treesit-ready-p 'cmake t)
@@ -65,6 +67,9 @@
 
 ;; orgmode
 (use-package org)
+
+;; nushell
+(use-package nushell-ts-mode)
 
 ;; yaml
 (use-package yaml-mode)
