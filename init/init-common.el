@@ -73,65 +73,6 @@
   :config
   (nibon7/delight 'which-key-mode))
 
-;; jump to visible text using a char-based decision tree
-(use-package avy
-  :bind
-  ("C-c g c" . avy-goto-char-2)
-  ("C-c g t" . avy-goto-char-timer)
-  ("C-c g w" . avy-goto-word-0)
-  ("C-c g g" . avy-goto-line))
-
-;; switch window
-(use-package ace-window
-  :bind
-  ([remap other-window] . ace-window))
-
-;; split window and switch to it
-(use-package emacs
-  :ensure nil
-  :config
-  (defun nibon7/split-window-and-switch (direction &optional root)
-    "Split window and switch to the new window.
-The parameter DIRECTION is a symbol, possible values are `right'/`horizontally'
-or `below'/`vertically' which means to split window horizontally or vertically.
-If the optional parameter ROOT is non-nil, split the root window of current
-frame, otherwise split the current window."
-    (interactive
-     (let*  ((completion-list '(right bellow horizontally vertically))
-	     (input (completing-read "direction: " completion-list nil t)))
-       (list (intern input))))
-    (let ((buffer "*scratch*")
-	  (switch-fn (intern (if root
-				 (format "split-root-window-%s" direction)
-			       (format "split-window-%s" direction)))))
-      (if (symbol-function switch-fn)
-	  (progn
-	    (select-window (funcall switch-fn))
-	    (unless (string-equal (buffer-name) buffer)
-	      (switch-to-buffer buffer)))
-	(user-error "%s is not a valid function" switch-fn))))
-  (defun nibon7/split-window-right-and-switch ()
-    "Split window horizontally and switch to the new window."
-    (interactive)
-    (nibon7/split-window-and-switch 'right))
-  (defun nibon7/split-window-below-and-switch ()
-    "Split window vertically and switch to the new window."
-    (interactive)
-    (nibon7/split-window-and-switch 'below))
-  (defun nibon7/split-root-window-right-and-switch ()
-    "Split root window horizontally and switch to the new window."
-    (interactive)
-    (nibon7/split-window-and-switch 'right t))
-  (defun nibon7/split-root-window-below-and-switch ()
-    "Split root window vertically and switch to the new window."
-    (interactive)
-    (nibon7/split-window-and-switch 'below t))
-  :bind
-  ([remap split-window-right] . nibon7/split-window-right-and-switch)
-  ([remap split-window-below] . nibon7/split-window-below-and-switch)
-  ([remap split-root-window-right] . nibon7/split-root-window-right-and-switch)
-  ([remap split-root-window-below] . nibon7/split-root-window-below-and-switch))
-
 ;; emoji
 (use-package emojify
   :hook

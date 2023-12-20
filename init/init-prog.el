@@ -155,31 +155,6 @@
   :custom
   (eglot-report-progress t))
 
-(use-package xcscope
-  :when (executable-find "cscope")
-  :bind
-  ("C-c s f" . cscope-find-this-file)
-  ("C-c s s" . cscope-find-this-symbol)
-  ("C-c s t" . cscope-find-this-text-string)
-  ("C-c s =" . cscope-find-assignments-to-this-symbol)
-  ("C-c s d" . cscope-find-global-definiton)
-  ("C-c s G" . cscope-find-global-definiton-no-prompting)
-  ("C-c s c" . cscope-find-functions-calling-this-function)
-  ("C-c s C" . cscope-find-called-functions)
-  ("C-c s e" . cscope-find-egrep-pattern)
-  ("C-c s i" . cscope-find-files-including-file)
-  ("C-c s n" . cscope-history-forward-line)
-  ("C-c s p" . cscope-history-backward-line)
-  ("C-c s N" . cscope-history-foward-file)
-  ("C-c s P" . cscope-history-backward-file)
-  ("C-c s I" . cscope-index-files)
-  ("C-c s u" . cscope-pop-mark)
-  ("C-c s b" . cscope-display-buffer-toggle)
-  :hook
-  (cscope-list-entry . (lambda ()
-			 (when (symbolp 'evil-emacs-state)
-			   (evil-emacs-state nil)))))
-
 (provide 'init-prog)
 
 ;;; init-prog.el ends here
