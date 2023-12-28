@@ -21,5 +21,6 @@
 (require 'init-package)
 (require 'init-common)
 (require 'init-prog)
+(load-file custom-file)
 
 ;;; init.el ends here
