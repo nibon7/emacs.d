@@ -53,16 +53,6 @@
 (global-set-key (kbd "C-x ;") 'comment-line)
 (global-set-key (kbd "C-c ;") 'comment-or-uncomment-region)
 
-(defun nibon7/delight (mode &optional name)
-  "Delight minor MODE with new NAME."
-  (let ((minor (assq mode minor-mode-alist)))
-    (when minor (setcar (cdr minor) (or name nil)))))
-
-(dolist (feature-alist '((eldoc . eldoc-mode)
-			 (hideshow . hs-minor-mode)))
-  (with-eval-after-load (car feature-alist)
-    (nibon7/delight (cdr feature-alist))))
-
 (setq user-full-name "nibon7"
       user-mail-address "nibon7@163.com"
       copyright-names-regexp

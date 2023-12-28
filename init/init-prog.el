@@ -118,10 +118,9 @@
 
 ;; yasnippet
 (use-package yasnippet
+  :diminish yas-minor-mode " YAS"
   :hook
-  (after-init . yas-global-mode)
-  :config
-  (nibon7/delight 'yas-minor-mode " YAS"))
+  (after-init . yas-global-mode))
 
 ;; yasnippet snippets
 (use-package yasnippet-snippets

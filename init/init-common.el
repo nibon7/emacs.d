@@ -4,11 +4,16 @@
 
 ;;; Code:
 
+;; delight builtin modes
+(dolist (feature-alist '((eldoc . eldoc-mode)
+			 (hideshow . hs-minor-mode)))
+  (with-eval-after-load (car feature-alist)
+    (diminish (cdr feature-alist))))
+
 ;; garbage collector magic hack
 (use-package gcmh
-  :hook after-init
-  :config
-  (nibon7/delight 'gcmh-mode))
+  :diminish gcmh-mode
+  :hook after-init)
 
 ;; vim-like key bindings
 (use-package evil
@@ -69,9 +74,8 @@
 
 ;; suggest next keys
 (use-package which-key
-  :hook after-init
-  :config
-  (nibon7/delight 'which-key-mode))
+  :diminish which-key-mode
+  :hook after-init)
 
 ;; emoji
 (use-package emojify

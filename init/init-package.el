@@ -37,6 +37,8 @@ Replace the official repositories with the given MIRROR."
 (setq use-package-always-ensure t
       use-package-always-defer t)
 
+(use-package diminish)
+
 (provide 'init-package)
 
 ;;; init-package.el ends here
