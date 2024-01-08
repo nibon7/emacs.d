@@ -18,6 +18,10 @@
 ;; vim-like key bindings
 (use-package evil
   :hook after-init
+  :config
+  (evil-define-key 'normal 'evil-normal-state-map (kbd "C-g")
+    (evil-define-command evil-show-current-file-name ()
+      (message (buffer-file-name (current-buffer)))))
   :custom
   (evil-want-C-i-jump nil)
   (evil-undo-system 'undo-redo))
