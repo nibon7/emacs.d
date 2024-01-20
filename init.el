@@ -21,6 +21,10 @@
 (require 'init-package)
 (require 'init-common)
 (require 'init-prog)
+
+(when (not (file-exists-p custom-file))
+  (make-empty-file custom-file))
+
 (load-file custom-file)
 
 ;;; init.el ends here
