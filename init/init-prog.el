@@ -39,7 +39,9 @@
 (use-package org)
 
 ;; nushell
-(use-package nushell-ts-mode)
+(use-package nushell-ts-mode
+  :init
+  (add-to-list 'auto-mode-alist '("\\.nu\\'" . nushell-ts-mode)))
 
 ;; yaml
 (use-package yaml-mode)
@@ -104,6 +106,7 @@
   (company-tooltip-align-annotations t)
   (company-selection-wrap-around t)
   (company-show-quick-access t)
+  (company-minimum-prefix-length 1)
   (company-lighter-base "AC"))
 
 ;; eglot
@@ -113,10 +116,13 @@
   (rust-ts-mode . eglot-ensure)
   (TeX-mode . eglot-ensure)
   (python-mode . eglot-ensure)
+  (nushell-ts-mode . eglot-ensure)
   :bind
   (:map eglot-mode-map
 	("C-c r" . eglot-rename)
 	("C-c a" . eglot-code-actions))
+  :config
+  (add-to-list 'eglot-server-programs '(nushell-ts-mode . ("nu" "--lsp")))
   :init
   (setq read-process-output-max
 	(* 1024 1024))
