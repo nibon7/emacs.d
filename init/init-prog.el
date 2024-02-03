@@ -39,9 +39,7 @@
 (use-package org)
 
 ;; nushell
-(use-package nushell-ts-mode
-  :init
-  (add-to-list 'auto-mode-alist '("\\.nu\\'" . nushell-ts-mode)))
+(use-package nushell-ts-mode)
 
 ;; yaml
 (use-package yaml-mode)
