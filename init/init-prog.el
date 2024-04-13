@@ -13,6 +13,10 @@
     (setq find-program "fd"))
   ;; show line numbers
   (global-display-line-numbers-mode)
+  :custom
+  ;; c-ts-mode
+  (c-ts-mode-indent-style 'linux)
+  (c-ts-mode-indent-offset 8)
   :hook
   ;; show pretty symbols
   (prog-mode . global-prettify-symbols-mode)
