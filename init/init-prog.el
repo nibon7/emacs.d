@@ -119,8 +119,6 @@
   (:map eglot-mode-map
 	("C-c r" . eglot-rename)
 	("C-c a" . eglot-code-actions))
-  :config
-  (add-to-list 'eglot-server-programs '(nushell-ts-mode . ("nu" "--lsp")))
   :init
   (setq read-process-output-max
 	(* 1024 1024))
