@@ -31,7 +31,7 @@
   (prog-mode . global-treesit-auto-mode)
   :custom
   (treesit-auto-install 'prompt)
-  (treesit-auto-langs '(bash c cmake cpp javascript json nu python rust toml yaml)))
+  (treesit-auto-langs '(bash blueprint c cmake cpp javascript json nu python rust toml yaml)))
 
 ;; cargo
 (use-package cargo)
@@ -41,6 +41,9 @@
 
 ;; orgmode
 (use-package org)
+
+;; blueprint
+(use-package blueprint-ts-mode)
 
 ;; nushell
 (use-package nushell-ts-mode)
@@ -126,6 +129,8 @@
   :init
   (setq read-process-output-max
 	(* 1024 1024))
+  :config
+  (add-to-list 'eglot-server-programs '((blueprint-mode blueprint-ts-mode) . ("blueprint-compiler" "lsp")))
   :custom
   (eglot-report-progress t))
 
