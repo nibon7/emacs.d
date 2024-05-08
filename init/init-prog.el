@@ -125,7 +125,8 @@
   :bind
   (:map eglot-mode-map
 	("C-c r" . eglot-rename)
-	("C-c a" . eglot-code-actions))
+	("C-c a" . eglot-code-actions)
+	("C-c s" . xref-find-apropos))
   :init
   (setq read-process-output-max
 	(* 1024 1024))
