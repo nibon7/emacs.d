@@ -89,8 +89,8 @@
   :ensure nil
   :bind
   (:map flymake-mode-map
-	("C-c n" . flymake-goto-next-error)
-	("C-c p" . flymake-goto-prev-error))
+	("C-c f n" . flymake-goto-next-error)
+	("C-c f p" . flymake-goto-prev-error))
   :hook prog-mode)
 
 ;; yasnippet
