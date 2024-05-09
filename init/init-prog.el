@@ -33,6 +33,14 @@
   (treesit-auto-install 'prompt)
   (treesit-auto-langs '(bash blueprint c cmake cpp javascript json nu python rust toml yaml)))
 
+;; projectile
+(use-package projectile
+  :bind
+  (:map projectile-mode-map
+	("C-c p" . projectile-command-map))
+  :hook
+  (prog-mode . projectile-mode))
+
 ;; cargo
 (use-package cargo)
 
