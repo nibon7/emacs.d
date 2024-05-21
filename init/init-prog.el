@@ -41,6 +41,11 @@
   :hook
   (prog-mode . projectile-mode))
 
+;; blamer
+(use-package blamer
+  :hook
+  (prog-mode . blamer-mode))
+
 ;; cargo
 (use-package cargo)
 
