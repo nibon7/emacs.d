@@ -97,7 +97,7 @@
 ;; theme
 (use-package doom-themes
   :init
-  (load-theme 'doom-monokai-machine t)
+  (load-theme 'doom-one t)
   (doom-themes-visual-bell-config)
   (doom-themes-org-config))
 
