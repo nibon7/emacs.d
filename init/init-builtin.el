@@ -44,7 +44,7 @@
 (add-hook 'after-init-hook #'auto-fill-mode)
 
 ;; highlight current line
-(add-hook 'after-init-hook #'global-hl-line-mode)
+;;(add-hook 'after-init-hook #'global-hl-line-mode)
 
 ;; revert buffers atomatically when the underlying file changes on the disk
 (add-hook 'after-init-hook #'global-auto-revert-mode)
