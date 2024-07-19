@@ -145,6 +145,7 @@
 	(* 1024 1024))
   :config
   (add-to-list 'eglot-server-programs '((blueprint-mode blueprint-ts-mode) . ("blueprint-compiler" "lsp")))
+  (add-to-list 'eglot-server-programs '((tex-mode context-mode texinfo-mode bibtex-mode) . ("texlab")))
   :custom
   (eglot-report-progress t))
 
