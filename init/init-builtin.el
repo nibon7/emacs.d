@@ -61,7 +61,7 @@
 ;; set default font
 (when (window-system)
   (let* ((name "JetBrainsMono Nerd Font Mono")
-	 (size 14)
+	 (size 12)
 	 (font (format "%s-%d" name size)))
     (add-to-list 'default-frame-alist `(font . ,font))
     (set-face-attribute 'default t :font `,font)))
