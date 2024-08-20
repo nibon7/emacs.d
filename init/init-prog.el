@@ -49,6 +49,9 @@
 ;; cargo
 (use-package cargo)
 
+;; meson
+(use-package meson-mode)
+
 ;; markdown
 (use-package markdown-mode)
 
