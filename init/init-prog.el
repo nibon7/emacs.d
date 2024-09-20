@@ -83,8 +83,11 @@
 ;; auto format
 (use-package format-all
   :hook
-  ((emacs-lisp-mode rust-ts-mode TeX-mode)
-   (format-all-mode . format-all-ensure-formatter))
+  (emacs-lisp-mode rust-mode rust-ts-mode TeX-mode)
+  (format-all-mode . format-all-ensure-formatter)
+  ((rust-mode rust-ts-mode) . (lambda ()
+				(setq-local format-all-formatters
+					    '(("Rust" (rustfmt "--edition" "2021"))))))
   :custom
   (format-all-mode-lighter " AF"))
 
