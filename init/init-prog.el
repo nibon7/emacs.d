@@ -100,14 +100,10 @@
   (prog-mode . flyspell-prog-mode)
   (git-commit-mode markdown-mode org-mode TeX-mode))
 
-;; flymake
-(use-package flymake
-  :ensure nil
-  :bind
-  (:map flymake-mode-map
-	("C-c f n" . flymake-goto-next-error)
-	("C-c f p" . flymake-goto-prev-error))
-  :hook prog-mode)
+;; flycheck
+(use-package flycheck
+  :hook
+  (prog-mode . global-flycheck-mode))
 
 ;; yasnippet
 (use-package yasnippet
